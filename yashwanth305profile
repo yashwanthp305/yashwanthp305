@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yashwanth P | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<style>
+/* --- CORE VARIABLES & RESET --- */
+:root {
+    --bg-dark: #020617;
+    --card-bg: #1e293b;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.4);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { background: var(--bg-dark); color: var(--text-main); position: relative; }
+
+/* --- ANIMATED BACKGROUND BLOBS --- */
+.blob-cont {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden;
+}
+.blob {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+    animation: float 20s infinite alternate;
+}
+.blob:nth-child(1) { width: 500px; height: 500px; background: #3b82f6; top: -100px; left: -100px; animation-delay: 0s; }
+.blob:nth-child(2) { width: 400px; height: 400px; background: #8b5cf6; bottom: -50px; right: -50px; animation-delay: -5s; }
+.blob:nth-child(3) { width: 300px; height: 300px; background: #06b6d4; top: 40%; left: 40%; animation-delay: -10s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, 50px) scale(1.1); }
+}
+
+/* --- NAVBAR --- */
+header {
+    position: fixed; top: 0; width: 100%;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 15px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+header h2 { color: var(--accent); font-weight: 700; letter-spacing: 1px; }
+nav a {
+    color: var(--text-main); margin-left: 25px; text-decoration: none; 
+    transition: 0.3s; font-size: 0.95rem; position: relative;
+}
+nav a::after {
+    content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0;
+    background: var(--accent); transition: 0.3s;
+}
+nav a:hover { color: var(--accent); }
+nav a:hover::after { width: 100%; }
+
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 20px 20px; /* Added top padding for navbar */
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 100%);
+}
+.hero-content {
+    max-width: 800px;
+}
+
+/* IMAGE STYLES ADDED HERE */
+.hero-img-container {
+    width: 180px; height: 180px; margin: 0 auto 30px;
+    border-radius: 50%; padding: 5px;
+    background: linear-gradient(45deg, var(--accent), #8b5cf6);
+    box-shadow: 0 0 30px var(--accent-glow);
+    animation: profileFloat 6s ease-in-out infinite;
+}
+.hero-img {
+    width: 100%; height: 100%; border-radius: 50%;
+    object-fit: cover; border: 4px solid var(--bg-dark);
+    background-color: #0f172a;
+}
+@keyframes profileFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 10px; line-height: 1.2; }
+.hero span { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
+.hero p { margin: 20px 0 30px; font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto; }
+.btn-primary {
+    padding: 14px 35px; border: none; border-radius: 50px;
+    background: linear-gradient(45deg, #0ea5e9, #38bdf8);
+    color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer;
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5); }
+
+/* --- GENERAL SECTIONS --- */
+section { padding: 100px 40px; max-width: 1200px; margin: auto; }
+section h2 {
+    text-align: center; font-size: 2.5rem; color: var(--text-main); margin-bottom: 60px;
+    position: relative; display: inline-block; left: 50%; transform: translateX(-50%);
+}
+section h2::after {
+    content: ''; position: absolute; width: 60px; height: 4px; background: var(--accent);
+    bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 2px;
+}
+
+/* --- ABOUT --- */
+.about-card {
+    background: rgba(30, 41, 59, 0.6); padding: 40px; border-radius: 20px;
+    backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05);
+    line-height: 1.8; font-size: 1.1rem; text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* --- SKILLS --- */
+.skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px;
+}
+.skill {
+    background: var(--card-bg); padding: 25px; border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+.skill:hover { transform: translateY(-5px); border-color: var(--accent); }
+.skill h3 { font-size: 1rem; margin-bottom: 15px; display: flex; justify-content: space-between; }
+.skill-bar { height: 6px; background: #334155; border-radius: 10px; overflow: hidden; }
+.skill-bar span {
+    display: block; height: 100%; background: var(--accent); width: 0;
+    box-shadow: 0 0 10px var(--accent);
+    transition: width 1.5s ease-in-out;
+}
+
+/* --- TIMELINE (EDUCATION) --- */
+.timeline { position: relative; max-width: 800px; margin: auto; }
+.timeline::before {
+    content: ""; position: absolute; left: 50%; top: 0; width: 2px; height: 100%;
+    background: linear-gradient(to bottom, var(--accent), transparent); transform: translateX(-50%);
+}
+.timeline-item { width: 100%; margin-bottom: 40px; position: relative; }
+.timeline-content {
+    width: 45%; background: var(--card-bg); padding: 25px; border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05); position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: 0.3s;
+}
+.timeline-content:hover { transform: scale(1.02); border-color: var(--accent); }
+.timeline-item:nth-child(odd) .timeline-content { margin-left: auto; }
+.timeline-dot {
+    position: absolute; left: 50%; top: 25px; width: 16px; height: 16px;
+    background: var(--accent); border-radius: 50%; transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* --- PROJECTS --- */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.project {
+    background: var(--card-bg); padding: 30px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
+    position: relative; overflow: hidden;
+}
+.project::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--accent), #8b5cf6);
+}
+.project:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.project h3 { margin-bottom: 10px; color: var(--text-main); }
+.project h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+.project p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+.tech-stack span {
+    display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--accent);
+    padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; margin: 0 5px 5px 0;
+}
+
+/* --- ACHIEVEMENTS & CERTS --- */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.list-card {
+    background: var(--card-bg); padding: 30px; border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.list-card ul { list-style: none; }
+.list-card li {
+    margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--text-muted);
+}
+.list-card li::before {
+    content: '▹'; position: absolute; left: 0; color: var(--accent); font-weight: bold;
+}
+
+/* --- CONTACT --- */
+.contact-container {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;
+}
+.contact-item {
+    background: rgba(255,255,255,0.03); padding: 25px; border-radius: 15px; min-width: 250px;
+    transition: 0.3s; border: 1px solid transparent;
+}
+.contact-item:hover { border-color: var(--accent); background: rgba(255,255,255,0.05); }
+.contact-item i { font-size: 1.5rem; color: var(--accent); margin-bottom: 15px; }
+.contact-item p { color: var(--text-main); font-size: 0.9rem; }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center; padding: 30px; background: rgba(2, 6, 23, 0.9);
+    border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .timeline::before { left: 20px; }
+    .timeline-content { width: calc(100% - 50px); margin-left: 50px !important; }
+    .timeline-dot { left: 20px; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero-img-container { width: 140px; height: 140px; }
+    header { padding: 15px 20px; }
+    nav { display: none; } /* Simplified for mobile */
+}
+</style>
+</head>
+
+<body>
+
+<div class="blob-cont">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
+
+<header>
+    <h2>Yashwanth P</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content" data-aos="zoom-in" data-aos-duration="1200">
+        
+        <div class="hero-img-container">
+            <img src="https://avatar.iran.liara.run/public/boy?username=Yashwanth" alt="Yashwanth P" class="hero-img">
+        </div>
+        <h1>Hi, I'm <span id="typed"></span></h1>
+        <p>A motivated and detail-oriented graduate passionate about Technology, AI, and Data Analytics.</p>
+        <button class="btn-primary" onclick="window.print()">Download Resume</button>
+    </div>
+</section>
+
+<section id="about">
+    <h2 data-aos="fade-up">About Me</h2>
+    <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+        I am a motivated and detail-oriented graduate seeking a challenging role in the IT sector. 
+        My goal is to leverage my technical skills, problem-solving abilities, and passion for technology 
+        to deliver value-driven solutions and grow as a high-performing IT professional.
+    </div>
+</section>
+
+<section id="skills">
+    <h2 data-aos="fade-up">Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill" data-aos="fade-up" data-aos-delay="0">
+            <h3>Python / C++ <span>85%</span></h3>
+            <div class="skill-bar"><span style="width: 85%"></span></div>
+        </div>
+        <div class="skill" data-aos="fade-up" data-aos-delay="100">
+            <h3>HTML / CSS / JS <span>90%</span></h3>
+            <div class="skill-bar"><span style="width: 90%"></span></div>
+        </div>
+        <div class="skill" data-aos="fade-up" data-aos-delay="200">
+            <h3>SQL / MongoDB <span>80%</span></h3>
+            <div class="skill-bar"><span style="width: 80%"></span></div>
+        </div>
+        <div class="skill" data-aos="fade-up" data-aos-delay="300">
+            <h3>Networking (TCP/IP) <span>75%</span></h3>
+            <div class="skill-bar"><span style="width: 75%"></span></div>
+        </div>
+        <div class="skill" data-aos="fade-up" data-aos-delay="400">
+            <h3>Linux (Ubuntu) <span>70%</span></h3>
+            <div class="skill-bar"><span style="width: 70%"></span></div>
+        </div>
+        <div class="skill" data-aos="fade-up" data-aos-delay="500">
+            <h3>Git / GitHub <span>80%</span></h3>
+            <div class="skill-bar"><span style="width: 80%"></span></div>
+        </div>
+    </div>
+</section>
+
+<section id="education">
+    <h2 data-aos="fade-up">Education</h2>
+    <div class="timeline">
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Nettur Technical Training Foundation (NTTF)</h3>
+                <p style="color:var(--accent); margin: 5px 0;">Electronic-City, Bengaluru</p>
+                <p><strong>CGPA:</strong> 8.6/10</p>
+                <p class="text-muted">2023 - 2026</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 data-aos="fade-up">Projects</h2>
+    <div class="projects">
+        <div class="project" data-aos="fade-up" data-aos-delay="0">
+            <h3>NestedUp</h3>
+            <h4>Home Service Web Application</h4>
+            <p>Developed a platform connecting users with home service providers. Implemented front-end/back-end for booking and service management with systematic manual testing.</p>
+            <div class="tech-stack">
+                <span>Web Development</span><span>Testing</span><span>Secure Data</span>
+            </div>
+        </div>
+
+        <div class="project" data-aos="fade-up" data-aos-delay="150">
+            <h3>Food Donation Platform</h3>
+            <h4>Reducing Food Waste</h4>
+            <p>A web platform to manage leftover food donations for orphanages. Features donor registration, food listing, and real-time tracking.</p>
+            <div class="tech-stack">
+                <span>Python</span><span>Flask</span><span>SQL Server</span><span>HTML/CSS/JS</span>
+            </div>
+        </div>
+
+        <div class="project" data-aos="fade-up" data-aos-delay="300">
+            <h3>Plant IQ</h3>
+            <h4>AI Farmer Companion</h4>
+            <p>Final Year Project. An AI-driven solution designed to assist farmers, leveraging technical skills to solve real-world agricultural problems.</p>
+            <div class="tech-stack">
+                <span>AI/ML</span><span>Problem Solving</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid-2">
+        <div class="list-card" data-aos="fade-right">
+            <h3 style="color:var(--accent); margin-bottom:20px;">🏆 Achievements</h3>
+            <ul>
+                <li>Best Presentation Award - "Shop talk", NTTF.</li>
+                <li>Participated in fundraising activities for ISKCON Mangalore.</li>
+                <li>Prize winner in college-level sports, demonstrating teamwork.</li>
+                <li>Received awards in cultural and sports activities.</li>
+            </ul>
+        </div>
+        <div class="list-card" data-aos="fade-left">
+            <h3 style="color:var(--accent); margin-bottom:20px;">📜 Certifications</h3>
+            <ul>
+                <li><strong>Cisco Networking Academy:</strong> Computer Networking, Linux.</li>
+                <li><strong>Infosys Springboard:</strong> AI & ML, C++, Cloud Computing.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 data-aos="fade-up">Contact Me</h2>
+    <div class="contact-container">
+        <a href="tel:+917899901273" class="contact-item" data-aos="zoom-in" data-aos-delay="0">
+            <i class="fas fa-phone"></i>
+            <p>+91 78999 01273</p>
+        </a>
+        <a href="mailto:pyashwanth694@gmail.com" class="contact-item" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-envelope"></i>
+            <p>pyashwanth694@gmail.com</p>
+        </a>
+        <a href="#" class="contact-item" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Bengaluru, Karnataka</p>
+        </a>
+        <a href="https://www.linkedin.com/in/yashwanth-p-55b7183a9/" target="_blank" class="contact-item" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fab fa-linkedin"></i>
+            <p>LinkedIn Profile</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Yashwanth P. Aspiring Software Engineer.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    // Initialize AOS Animation
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Initialize Typed.js
+    new Typed('#typed', {
+        strings: ["Yashwanth P", "a Software Engineer", "a Problem Solver", "an AI Enthusiast"],
+        typeSpeed: 60,
+        backSpeed: 40,
+        loop: true,
+        backDelay: 1500
+    });
+</script>
+
+</body>
+</html>
