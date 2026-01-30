@@ -1,5 +1,5 @@
 # 💫 About Me:
-Hi! I’m Yashwanth P, a passionate developer and tech enthusiast. I love building projects that solve real-world problems using AI, web development, and software solutions<br>.<br>💻 Skills: Network Python, JavaScript, React, Node.js, HTML, CSS<br>🌱 Currently Learning: Advanced AI, Cloud Technologies, Full-stack Development<br>🚀 Interests: Open-source contributions, creating impactful projects, exploring new technologies<br>✨ Fun Fact: I enjoy turning ideas into code and learning something new every day!
+Hi! I’m Yashwanth P, a passionate developer and tech enthusiast. I love building projects that solve real-world problems using AI, web development, and software solutions<br>.<br>💻 Skills: Network,Python, JavaScript, React, Node.js, HTML, CSS<br>🌱 Currently Learning: Advanced AI, Cloud Technologies, Full-stack Development<br>🚀 Interests: Open-source contributions, creating impactful projects, exploring new technologies<br>✨ Fun Fact: I enjoy turning ideas into code and learning something new every day!
 
 
 # 💻 Tech Stack:
